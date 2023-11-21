@@ -1,0 +1,45 @@
+name: Quality Check
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  check_formatting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Run clang-format on changes
+        run: |
+          git diff --name-only HEAD~1 | grep -E "\.(cpp|h)$" | xargs --no-run-if-empty -- clang-format --dry-run --Werror
+  
+  check_tidy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Run clang-tidy on changes
+        run: |
+          git diff --name-only HEAD~1 | grep -E "\.(cpp|h)$" | xargs --no-run-if-empty -- clang-tidy --warnings-as-errors="*"
+        
+  check_compilation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name : Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure project
+        run: |
+          cmake -S . -B build
+
+      - name: Build project
+        run: |
+          cmake --build build --parallel 4
+      
