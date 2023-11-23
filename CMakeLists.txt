@@ -36,6 +36,8 @@ endif()
 include(cmake/gtest.cmake)
 include(cmake/helpers.cmake)
 
+add_subdirectory(3party/fmt)
+
 add_subdirectory(lib)
 add_subdirectory(cmd)
 add_subdirectory(test)
