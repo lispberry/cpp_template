@@ -50,6 +50,7 @@
             "name": "Hello World",
             "description": "Base of dev build",
             "configurePreset": "Dev Mac",
+            "jobs": 12,
             "targets": [
                 "cmd_hello_world"
             ]
@@ -58,6 +59,7 @@
             "name": "CI",
             "description": "Base of CI build",
             "configurePreset": "CI",
+            "jobs": 6,
             "targets": [
                 "all"
             ]
