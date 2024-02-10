@@ -22,7 +22,6 @@
             "inherits": "Base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
                 "USE_ASAN": "ON",
                 "USE_UBSAN": "ON"
             }
@@ -32,9 +31,9 @@
             "description": "Base of CI config",
             "inherits": "Base",
             "hidden": false,
+            "generator": "Unix Makefiles",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
                 "USE_ASAN": "ON",
                 "USE_UBSAN": "ON"
             }
