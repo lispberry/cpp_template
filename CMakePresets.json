@@ -7,11 +7,19 @@
     },
     "configurePresets": [
         {
+            "name": "Base",
+            "description": "Base of all presets",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+            }
+        },
+        {
             "name": "Dev",
             "description": "Base of dev config",
-            "hidden": true,
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build",
+            "inherits": "Base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
@@ -22,7 +30,8 @@
         {
             "name": "CI",
             "description": "Base of CI config",
-            "hidden": true,
+            "inherits": "Base",
+            "hidden": false,
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
@@ -44,14 +53,6 @@
             "configurePreset": "Dev Mac",
             "targets": [
                 "cmd_hello_world"
-            ]
-        },
-        {
-            "name": "CI",
-            "description": "Base of CI build",
-            "configurePreset": "CI",
-            "targets": [
-                "all"
             ]
         },
         {
