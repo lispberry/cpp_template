@@ -45,7 +45,15 @@
             "targets": [
                 "cmd_hello_world"
             ]
-        }
+        },
+        {
+            "name": "CI",
+            "description": "Base of CI build",
+            "configurePreset": "CI",
+            "targets": [
+                "all"
+            ]
+        },
         {
             "name": "CI",
             "description": "Base of CI build",
