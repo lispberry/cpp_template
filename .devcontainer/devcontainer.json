@@ -22,5 +22,6 @@
     ],
     "forwardPorts": [
         3000
-    ]
+    ],
+    "postCreateCommand": "git submodule update --init --recursive"
 }
