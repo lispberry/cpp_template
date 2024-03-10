@@ -2,7 +2,7 @@
     "version": 3,
     "cmakeMinimumRequired": {
         "major": 3,
-        "minor": 27,
+        "minor": 22,
         "patch": 0
     },
     "configurePresets": [
@@ -20,6 +20,7 @@
             "name": "Dev",
             "description": "Base of dev config",
             "inherits": "Base",
+            "hidden": true,
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "USE_ASAN": "ON",
@@ -39,7 +40,7 @@
             }
         },
         {
-            "name": "Dev Mac",
+            "name": "DevMac",
             "description": "Dev config for Mac",
             "inherits": "Dev",
             "hidden": false
@@ -47,12 +48,12 @@
     ],
     "buildPresets": [
         {
-            "name": "Hello World",
+            "name": "DevMac",
             "description": "Base of dev build",
-            "configurePreset": "Dev Mac",
+            "configurePreset": "DevMac",
             "jobs": 12,
             "targets": [
-                "cmd_hello_world"
+                "all"
             ]
         },
         {

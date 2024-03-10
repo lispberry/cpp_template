@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.22)
 
 project(cpp_template)
 
@@ -43,5 +43,4 @@ include(cmake/helpers.cmake)
 add_subdirectory(3party/fmt)
 
 add_subdirectory(lib)
-add_subdirectory(cmd)
 add_subdirectory(test)
